@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+}
+
+aside {
+    height: 100vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #33A4E4;
+}
+
+main {
+    height: 100vh;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #33E1E4;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-board-header {
+    height: 50px;
+}
+
+.game-board {
+    height: 484px;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+    gap: 12%;
+}
+
+div {
+    height: 100px;
+    width: 16%;
+    border: black solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 100%;
+    width: 100%;
+}
+
