@@ -1,20 +1,20 @@
 class Game {
     constructor() {
-        this.turn = player1;
+        this.turn = null;
         this.gameWin = false;
         this.gameDraw = false;
-        this.player1Choices = [];
-        this.player2Choices = [];
+        this.player1Moves = [];
+        this.player2Moves = [];
     }
     createPlayers() {
-        var playerOne = new Player;
-        var playerTwo = new Player;
+        var newPlayer = new Player;
+        return newPlayer;
     }
     resetGame() {
         this.turn = player1;
         this.gameWin = false;
         this.gameDraw = false;
-        this.player1Choices = [];
-        this.player2Choices = [];
+        this.player1Moves = [];
+        this.player2Moves = [];
     }
 }

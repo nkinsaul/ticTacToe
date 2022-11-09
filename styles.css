@@ -37,16 +37,8 @@ main {
     padding: 5%;
     gap: 1%;
     justify-content: center;
-}
-
-/* div {
-    height: 100px;
-    width: 16%;
-    border: black solid 2px;
-    display: flex;
-    justify-content: center;
     align-items: center;
-} */
+}
 
 button {
     display: flex;
