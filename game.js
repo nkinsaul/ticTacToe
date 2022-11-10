@@ -3,12 +3,19 @@ class Game {
         this.turn = null;
         this.gameWin = false;
         this.gameDraw = false;
-        this.player1Moves = [];
-        this.player2Moves = [];
+        this.playerOneMoves = [];
+        this.playerTwoMoves = [];
     }
-    createPlayers() {
-        var newPlayer = new Player;
+    createPlayers(playerName) {
+        var newPlayer = new Player(playerName);
         return newPlayer;
+    }
+    playerMove(player, move) {
+        if (player === playerOne) {
+            this.playerOneMoves.push(move);
+        } else if (player === playerTwo) {
+            this.playerTwoMoves.push(move);
+        }
     }
     resetGame() {
         this.turn = player1;
