@@ -18,7 +18,7 @@ class Game {
         }
     }
     resetGame() {
-        this.turn = player1;
+        this.turn = null;
         this.gameWin = false;
         this.gameDraw = false;
         this.player1Moves = [];

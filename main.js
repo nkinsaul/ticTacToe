@@ -18,49 +18,59 @@ function switchTurns() {
         newGame.turn = playerOne;
     }
 }
-
-// create a for loop that will check the moves in the array
-// I think it makes more sense to check in the players array 
-// it can be more dynamic.
-// If the numbers in each players array contains a winning
-// combination, then that player will be declared winner
+// still need to get the switching turns functionality working
 
 
-function checkForWinner(playerMoves) {
-    for (var i = 0; i < playerMoves.length; i++) {
-        if (playerMoves.includes(1) && playerMoves.includes(2) && playerMoves.includes(3) || 
-            playerMoves.includes(4) && playerMoves.includes(5) && playerMoves.includes(6) ||
-            playerMoves.includes(7) && playerMoves.includes(8) && playerMoves.includes(9) ||
-            playerMoves.includes(1) && playerMoves.includes(4) && playerMoves.includes(7) ||
-            playerMoves.includes(2) && playerMoves.includes(5) && playerMoves.includes(8) ||
-            playerMoves.includes(3) && playerMoves.includes(6) && playerMoves.includes(9) ||
-            playerMoves.includes(1) && playerMoves.includes(5) && playerMoves.includes(9) ||
-            playerMoves.includes(3) && playerMoves.includes(5) && playerMoves.includes(7)) {
-            console.log(`You won`)
-        } else {
-            console.log(`You didn't win.`)
-        }
+function checkForWinner(player) {
+    if (player.moves.includes(1) && player.moves.includes(2) && player.moves.includes(3) || 
+        player.moves.includes(4) && player.moves.includes(5) && player.moves.includes(6) ||
+        player.moves.includes(7) && player.moves.includes(8) && player.moves.includes(9) ||
+        player.moves.includes(1) && player.moves.includes(4) && player.moves.includes(7) ||
+        player.moves.includes(2) && player.moves.includes(5) && player.moves.includes(8) ||
+        player.moves.includes(3) && player.moves.includes(6) && player.moves.includes(9) ||
+        player.moves.includes(1) && player.moves.includes(5) && player.moves.includes(9) ||
+        player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
+        player.wins = true;
+        console.log(`${player.name} wins!`)
+        newGame.resetGame();
+    } else {
+        console.log(`It's a draw!`)
+        // need a it's a draw case to happen only if the number of turns is 9
+        newGame.resetGame();
     }
 }
 
 
 playerMove(playerOne, 1);
-checkForWinner(playerOne.moves)  
+console.log(playerOne.moves);
 
-playerMove(playerTwo, 2);
-checkForWinner(playerTwo.moves)
+playerMove(playerTwo, 5);
+console.log(playerTwo.moves);
 
-playerMove(playerOne, 4);
-checkForWinner(playerOne.moves)
+playerMove(playerOne, 2);
+console.log(playerOne.moves);
 
-playerMove(playerTwo, 7);
-checkForWinner(playerTwo.moves)
+playerMove(playerTwo, 3);
+console.log(playerTwo.moves);
 
-playerMove(playerOne, 5);
-checkForWinner(playerOne.moves); 
+playerMove(playerOne, 7);
+console.log(playerOne.moves);
 
-playerMove(playerTwo, 9);
-checkForWinner(playerTwo.moves);
+playerMove(playerTwo, 4);
+console.log(playerTwo.moves);
+checkForWinner(playerTwo);
+
+playerMove(playerOne, 9);
+console.log(playerOne.moves);
+checkForWinner(playerOne);
+
+playerMove(playerTwo, 8);
+console.log(playerTwo.moves);
+checkForWinner(playerTwo);
 
 playerMove(playerOne, 6);
-checkForWinner(playerOne.moves);
+console.log(playerOne.moves);
+checkForWinner(playerOne);
+
+// could have a function that only starts checking for winner once a certain number of turns have been played
+
