@@ -25,6 +25,11 @@ main {
     flex-wrap: wrap;
 }
 
+.player-emoji {
+    font-size: 70px;
+}
+
+
 .game-board-header {
     height: 50px;
 }
