@@ -30,6 +30,14 @@ main {
 }
 
 .game-board {
+    height: 458px;
+    width: 58%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 70px;
+}
+
+/* .game-board {
     height: 575px;
     width: 70%;
     display: flex;
@@ -38,14 +46,82 @@ main {
     gap: 1%;
     justify-content: center;
     align-items: center;
-}
+} */
 
 button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30%;
-    width: 25%;
 }
 
+.box-1 {
+    background-color: transparent;
+    border-top: none;
+    border-right: black solid 1px;
+    border-left: none;
+    border-bottom: black solid 1px;
+}
 
+.box-2 {
+    background-color: transparent;
+    border-top: none;
+    border-right: black solid 1px;
+    border-left: black solid 1px;;
+    border-bottom: black solid 1px;
+}
+
+.box-3 {
+    background-color: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: black solid 1px;;
+    border-bottom: black solid 1px;
+}
+
+.box-4 {
+    background-color: transparent;
+    border-top: black solid 1px;
+    border-right: black solid 1px;
+    border-left: none;
+    border-bottom: black solid 1px;
+}
+
+.box-5 {
+    background-color: transparent;
+    border-top: black solid 1px;
+    border-right: black solid 1px;
+    border-left: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.box-6 {
+    background-color: transparent;
+    border-top: black solid 1px;
+    border-right: none;
+    border-left: black solid 1px;
+    border-bottom: black solid 1px;
+}
+
+.box-7 {
+    background-color: transparent;
+    border-top: black solid 1px;
+    border-right: black solid 1px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.box-8 {
+    background-color: transparent;
+    border-top: black solid 1px;
+    border-right: black solid 1px;
+    border-left: black solid 1px;
+    border-bottom: none;
+}
+
+.box-9 {
+    background-color: transparent;
+    border-top: black solid 1px;
+    border-right: none;
+    border-left: black solid 1px;
+    border-bottom: none;
+}

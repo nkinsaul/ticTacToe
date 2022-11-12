@@ -1,7 +1,37 @@
+// Query Selectors 👇🏻
+
+var box1 = document.getElementById('box-1')
+var box2 = document.getElementById('box-2')
+var box3 = document.getElementById('box-3')
+var box4 = document.getElementById('box-4')
+var box5 = document.getElementById('box-5')
+var box6 = document.getElementById('box-6')
+var box7 = document.getElementById('box-7')
+var box8 = document.getElementById('box-8')
+var box9 = document.getElementById('box-9')
+
+// Event Listeners 👇🏻
+
+window.addEventListener("load", loadPage);
+box1.addEventListener('click', test);
+box2.addEventListener('click', test);
+
+// Global variables
+
 var newGame = new Game;
 var playerOne = newGame.createPlayers('playerOne');
 var playerTwo = newGame.createPlayers('playerTwo');
-newGame.turn = playerOne.name;
+
+
+// Functions 👇🏻
+
+function test() {
+    console.log('I am a button!')
+}
+
+function loadPage() {
+    newGame.turn = playerOne.name;
+}
 
 function playerMove(player, move) {
     player.playerMove(move);
@@ -22,6 +52,7 @@ function switchTurns() {
 }
 
 function restartGame() {
+    console.log('New Game')
     newGame.resetGame();
     playerOne.moves = [];
     playerTwo.moves = [];
@@ -39,55 +70,10 @@ function checkForWinner(player) {
         player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
         console.log(`${player.name} wins!`)
         player.playerWon();
-        restartGame();
+        setTimeout(restartGame(), 50000);
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
         restartGame();
     }
 }
-
-// playerMove(playerOne, 1);
-// console.log(playerOne.moves);
-// switchTurns();
-// console.log(newGame);
-
-// playerMove(playerTwo, 5);
-// console.log(playerTwo.moves);
-// switchTurns();
-// console.log(newGame);
-
-// playerMove(playerOne, 2);
-// console.log(playerOne.moves);
-// switchTurns();
-// console.log(newGame);
-
-// playerMove(playerTwo, 3);
-// console.log(playerTwo.moves);
-// switchTurns();
-// console.log(newGame);
-
-// playerMove(playerOne, 7);
-// console.log(playerOne.moves);
-// switchTurns();
-// console.log(newGame);   
-
-// playerMove(playerTwo, 4);
-// console.log(playerTwo.moves);
-// checkForWinner(playerTwo);
-// switchTurns();
-// console.log(newGame);
-
-// playerMove(playerOne, 8);
-// console.log(playerOne.moves);
-// checkForWinner(playerOne);
-// switchTurns();
-// console.log(newGame);
-
-// playerMove(playerTwo, 6);
-// console.log(playerTwo);
-// checkForWinner(playerTwo);
-// switchTurns();
-// console.log(newGame);
-// console.log(playerOne);
-// console.log(playerTwo)
 
