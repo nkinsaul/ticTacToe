@@ -15,6 +15,13 @@ var box9 = document.getElementById('box-9')
 window.addEventListener("load", loadPage);
 box1.addEventListener('click', test);
 box2.addEventListener('click', test);
+box3.addEventListener('click', test);
+box4.addEventListener('click', test);
+box5.addEventListener('click', test);
+box6.addEventListener('click', test);
+box7.addEventListener('click', test);
+box8.addEventListener('click', test);
+box9.addEventListener('click', test);
 
 // Global variables
 
