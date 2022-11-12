@@ -77,7 +77,7 @@ function checkForWinner(player) {
         player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
         console.log(`${player.name} wins!`)
         player.playerWon();
-        setTimeout(restartGame(), 50000);
+        setTimeout(restartGame, 3000);
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
         restartGame();
