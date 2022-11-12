@@ -1,6 +1,7 @@
 class Game {
     constructor() {
         this.turn = null;
+        this.moveCount = 1;
         this.gameWin = false;
         this.gameDraw = false;
         this.playerOneMoves = [];
@@ -19,6 +20,7 @@ class Game {
     }
     resetGame() {
         this.turn = null;
+        this.moveCount = 1;
         this.gameWin = false;
         this.gameDraw = false;
         this.player1Moves = [];
