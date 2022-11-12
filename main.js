@@ -9,35 +9,54 @@ var box6 = document.getElementById('box-6')
 var box7 = document.getElementById('box-7')
 var box8 = document.getElementById('box-8')
 var box9 = document.getElementById('box-9')
+var gameBoard = document.getElementById('game-board')
 
 // Event Listeners 👇🏻
 
 window.addEventListener("load", loadPage);
-box1.addEventListener('click', test);
-box2.addEventListener('click', test);
-box3.addEventListener('click', test);
-box4.addEventListener('click', test);
-box5.addEventListener('click', test);
-box6.addEventListener('click', test);
-box7.addEventListener('click', test);
-box8.addEventListener('click', test);
-box9.addEventListener('click', test);
+
+// box1.addEventListener('click', test);
+// box2.addEventListener('click', test);
+// box3.addEventListener('click', test);
+// box4.addEventListener('click', test);
+// box5.addEventListener('click', test);
+// box6.addEventListener('click', test);
+// box7.addEventListener('click', test);
+// box8.addEventListener('click', test);
+// box9.addEventListener('click', test);
+gameBoard.addEventListener('click', test)
 
 // Global variables
 
 var newGame = new Game;
 var playerOne = newGame.createPlayers('playerOne');
 var playerTwo = newGame.createPlayers('playerTwo');
+var currentPlayerEmoji = ''
+updatePlayerEmoji();
+
 
 
 // Functions 👇🏻
 
-function test() {
-    console.log('I am a button!')
+function updatePlayerEmoji() {
+    if (newGame.turn === playerOne.name) {
+        currentPlayerEmoji = '🤖'
+    } else if (newGame.turn === playerTwo.name) {
+        currentPlayerEmoji = '🎃'
+    }
+}
+
+function test(event) {
+    if (event.target.id === 'box-1') {
+        box1.innerHTML += `${currentPlayerEmoji}`
+    } else if (event.target.id === 'box-2') {
+        box2.innerHTML += `${currentPlayerEmoji}` 
+    }    
 }
 
 function loadPage() {
     newGame.turn = playerOne.name;
+    updatePlayerEmoji();
 }
 
 function playerMove(player, move) {
@@ -46,6 +65,7 @@ function playerMove(player, move) {
     switchTurns();
     checkForWinner(playerOne);
     checkForWinner(playerTwo);
+    updatePlayerEmoji();
 }
 
 function switchTurns() {
