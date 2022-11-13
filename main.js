@@ -13,7 +13,7 @@ var gameBoard = document.getElementById('game-board')
 
 // Event Listeners 👇🏻
 
-window.addEventListener("load", loadPage);
+window.addEventListener('load', loadPage);
 
 
 gameBoard.addEventListener('click', function(event) {
@@ -32,6 +32,9 @@ updatePlayerEmoji();
 
 // Functions 👇🏻
 
+function loadPage() {
+    console.log('I am loaded');
+}
 
 function updatePlayerEmoji() {
     if (newGame.turn === playerOne.name) {
@@ -63,8 +66,10 @@ function loadPage() {
 function playerMove(event) {
     if (newGame.turn === playerOne.name) {
         playerOne.playerMove(event.target.id);
+        event.target.disabled = true;
     } else if (newGame.turn === playerTwo.name) {
         playerTwo.playerMove(event.target.id);
+        event.target.disabled = true;
     }
     switchTurns();
     checkForWinner(playerOne);
