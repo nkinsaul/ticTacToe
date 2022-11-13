@@ -1,14 +1,14 @@
 // Query Selectors 👇🏻
 
-var box1 = document.getElementById('box-1')
-var box2 = document.getElementById('box-2')
-var box3 = document.getElementById('box-3')
-var box4 = document.getElementById('box-4')
-var box5 = document.getElementById('box-5')
-var box6 = document.getElementById('box-6')
-var box7 = document.getElementById('box-7')
-var box8 = document.getElementById('box-8')
-var box9 = document.getElementById('box-9')
+var box1 = document.getElementById('1')
+var box2 = document.getElementById('2')
+var box3 = document.getElementById('3')
+var box4 = document.getElementById('4')
+var box5 = document.getElementById('5')
+var box6 = document.getElementById('6')
+var box7 = document.getElementById('7')
+var box8 = document.getElementById('8')
+var box9 = document.getElementById('9')
 var gameBoard = document.getElementById('game-board')
 
 // Event Listeners 👇🏻
@@ -30,9 +30,8 @@ var playerTwo = newGame.createPlayers('playerTwo');
 var currentPlayerEmoji = ''
 updatePlayerEmoji();
 
-
-
 // Functions 👇🏻
+
 
 function updatePlayerEmoji() {
     if (newGame.turn === playerOne.name) {
@@ -88,6 +87,7 @@ function restartGame() {
     newGame.resetGame();
     playerOne.moves = [];
     playerTwo.moves = [];
+    clearBoard();
     newGame.turn = playerOne.name;
 }
 
@@ -102,11 +102,21 @@ function checkForWinner(player) {
         player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
         console.log(`${player.name} wins!`)
         player.playerWon();
-        setTimeout(restartGame, 5000);
+        setTimeout(restartGame, 3000);
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
-        restartGame();
+        setTimeout(restartGame, 3000);
     }
 }
 
-
+function clearBoard() {
+    box1.innerHTML = ''
+    box2.innerHTML = ''
+    box3.innerHTML = ''
+    box4.innerHTML = ''
+    box5.innerHTML = ''
+    box6.innerHTML = ''
+    box7.innerHTML = ''
+    box8.innerHTML = ''
+    box9.innerHTML = ''
+}
