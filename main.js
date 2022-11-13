@@ -16,7 +16,6 @@ var gameBoard = document.getElementById('game-board')
 
 window.addEventListener('load', loadPage);
 
-
 gameBoard.addEventListener('click', function(event) {
     addMoveToGameBoard(event);
     addMoveToMoveArray(event);
@@ -29,12 +28,13 @@ var newGame = new Game;
 var playerOne = newGame.createPlayers('playerOne');
 var playerTwo = newGame.createPlayers('playerTwo');
 var currentPlayerEmoji = ''
-updatePlayerEmoji();
 
 // Functions 👇🏻
 
 function loadPage() {
-    console.log('I am loaded');
+    newGame.turn = playerOne.name;
+    newGame.goesFirst = playerOne.name;
+    updatePlayerEmoji();
 }
 
 function updatePlayerEmoji() {
@@ -53,17 +53,11 @@ function addMoveToGameBoard(event) {
 
 function addMoveToMoveArray(event) {
     var boxId = event.target.id;
-    console.log(boxId);
     if (newGame.turn === playerOne.name) {
         playerOne.moves.push(Number(boxId));
     } else if (newGame.turn === playerTwo.name) {
         playerTwo.moves.push(Number(boxId));
     }
-}
-
-function loadPage() {
-    newGame.turn = playerOne.name;
-    updatePlayerEmoji();
 }
 
 function playerMove(event) {
@@ -95,8 +89,9 @@ function restartGame() {
     newGame.resetGame();
     playerOne.moves = [];
     playerTwo.moves = [];
+    changeWhoGoesFirst();
+    newGame.turn = newGame.goesFirst;
     clearBoard();
-    newGame.turn = playerOne.name;
     enableAllButtons();
 }
 
@@ -141,5 +136,15 @@ function enableAllButtons () {
 function disableAllButtons () {
     for (var i=0; i<buttons.length; i++) {
         buttons[i].disabled = true;
+    }
+}
+
+function changeWhoGoesFirst () {
+    if (newGame.goesFirst === playerOne.name) {
+        newGame.goesFirst = playerTwo.name;
+        return playerTwo.name;
+    } else if (newGame.goesFirst === playerTwo.name) {
+        newGame.goesFirst = playerOne.name;
+       return playerOne.name;
     }
 }

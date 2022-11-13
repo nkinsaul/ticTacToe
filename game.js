@@ -6,6 +6,7 @@ class Game {
         this.gameDraw = false;
         this.playerOneMoves = [];
         this.playerTwoMoves = [];
+        this.goesFirst = null;
     }
     createPlayers(playerName) {
         var newPlayer = new Player(playerName);
