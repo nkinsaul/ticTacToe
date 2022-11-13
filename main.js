@@ -9,6 +9,7 @@ var box6 = document.getElementById('6')
 var box7 = document.getElementById('7')
 var box8 = document.getElementById('8')
 var box9 = document.getElementById('9')
+var buttons = document.querySelectorAll('button')
 var gameBoard = document.getElementById('game-board')
 
 // Event Listeners 👇🏻
@@ -45,7 +46,9 @@ function updatePlayerEmoji() {
 }
 
 function addMoveToGameBoard(event) {
+    if (event.target.classList.contains('button')) {
     event.target.innerHTML += `${currentPlayerEmoji}`
+    }
 }
 
 function addMoveToMoveArray(event) {
@@ -94,6 +97,7 @@ function restartGame() {
     playerTwo.moves = [];
     clearBoard();
     newGame.turn = playerOne.name;
+    buttons.disabled = false;
 }
 
 function checkForWinner(player) {
@@ -107,9 +111,11 @@ function checkForWinner(player) {
         player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
         console.log(`${player.name} wins!`)
         player.playerWon();
+        buttons.disabled = true;
         setTimeout(restartGame, 3000);
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
+        buttons.disabled = true;
         setTimeout(restartGame, 3000);
     }
 }

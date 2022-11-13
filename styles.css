@@ -69,7 +69,6 @@ button:disabled {
 }
 
 .box-1 {
-    /* background-color: transparent; */
     border-top: none;
     border-right: black solid 1px;
     border-left: none;
@@ -77,7 +76,6 @@ button:disabled {
 }
 
 .box-2 {
-    /* background-color: transparent; */
     border-top: none;
     border-right: black solid 1px;
     border-left: black solid 1px;;
@@ -85,7 +83,6 @@ button:disabled {
 }
 
 .box-3 {
-    /* background-color: transparent; */
     border-top: none;
     border-right: none;
     border-left: black solid 1px;;
@@ -93,7 +90,6 @@ button:disabled {
 }
 
 .box-4 {
-    /* background-color: transparent; */
     border-top: black solid 1px;
     border-right: black solid 1px;
     border-left: none;
@@ -101,7 +97,6 @@ button:disabled {
 }
 
 .box-5 {
-    /* background-color: transparent; */
     border-top: black solid 1px;
     border-right: black solid 1px;
     border-left: black solid 1px;
@@ -109,7 +104,6 @@ button:disabled {
 }
 
 .box-6 {
-    /* background-color: transparent; */
     border-top: black solid 1px;
     border-right: none;
     border-left: black solid 1px;
@@ -117,7 +111,6 @@ button:disabled {
 }
 
 .box-7 {
-    /* background-color: transparent; */
     border-top: black solid 1px;
     border-right: black solid 1px;
     border-left: none;
@@ -125,7 +118,6 @@ button:disabled {
 }
 
 .box-8 {
-    /* background-color: transparent; */
     border-top: black solid 1px;
     border-right: black solid 1px;
     border-left: black solid 1px;
@@ -133,7 +125,6 @@ button:disabled {
 }
 
 .box-9 {
-    /* background-color: transparent; */
     border-top: black solid 1px;
     border-right: none;
     border-left: black solid 1px;
