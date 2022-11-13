@@ -15,16 +15,11 @@ var gameBoard = document.getElementById('game-board')
 
 window.addEventListener("load", loadPage);
 
-// box1.addEventListener('click', test);
-// box2.addEventListener('click', test);
-// box3.addEventListener('click', test);
-// box4.addEventListener('click', test);
-// box5.addEventListener('click', test);
-// box6.addEventListener('click', test);
-// box7.addEventListener('click', test);
-// box8.addEventListener('click', test);
-// box9.addEventListener('click', test);
-gameBoard.addEventListener('click', test)
+
+gameBoard.addEventListener('click', function(event) {
+    addMoveToGameBoard(event);
+    // addMoveToMoveArray(event);
+})
 
 // Global variables
 
@@ -46,13 +41,13 @@ function updatePlayerEmoji() {
     }
 }
 
-function test(event) {
-    if (event.target.id === 'box-1') {
-        box1.innerHTML += `${currentPlayerEmoji}`
-    } else if (event.target.id === 'box-2') {
-        box2.innerHTML += `${currentPlayerEmoji}` 
-    }    
+function addMoveToGameBoard(event) {
+    event.target.innerHTML += `${currentPlayerEmoji}`
 }
+
+// function addMoveToMoveArray(event) {
+//     if(event.target.id === 'box-1')
+// }
 
 function loadPage() {
     newGame.turn = playerOne.name;
@@ -97,10 +92,36 @@ function checkForWinner(player) {
         player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
         console.log(`${player.name} wins!`)
         player.playerWon();
-        setTimeout(restartGame, 3000);
+        setTimeout(restartGame, 5000);
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
         restartGame();
     }
 }
+
+
+
+
+// function addMoveToGameBoard(event) {
+//     if (event.target.id === 'box-1') {
+//         box1.innerHTML += `${currentPlayerEmoji}`
+//     } else if (event.target.id === 'box-2') {
+//         box2.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-3') {
+//         box3.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-4') {
+//         box4.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-5') {
+//         box5.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-6') {
+//         box6.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-7') {
+//         box7.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-8') {
+//         box9.innerHTML += `${currentPlayerEmoji}` 
+//     } else if (event.target.id === 'box-9') {
+//         box9.innerHTML += `${currentPlayerEmoji}` 
+//     }                                                                   
+// }
+
 
