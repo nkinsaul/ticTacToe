@@ -11,6 +11,8 @@ var box8 = document.getElementById('8')
 var box9 = document.getElementById('9')
 var buttons = document.getElementsByClassName('button')
 var gameBoard = document.getElementById('game-board')
+var playersTurn = document.getElementById('player-turn-emoji')
+var gameBoardHeader = document.getElementById('game-board-header')
 
 // Event Listeners 👇🏻
 
@@ -35,6 +37,7 @@ function loadPage() {
     newGame.turn = playerOne.name;
     newGame.goesFirst = playerOne.name;
     updatePlayerEmoji();
+    updatePlayerTurnEmoji();
 }
 
 function updatePlayerEmoji() {
@@ -43,6 +46,7 @@ function updatePlayerEmoji() {
     } else if (newGame.turn === playerTwo.name) {
         currentPlayerEmoji = '🎃'
     }
+    playersTurn.innerHTML = currentPlayerEmoji;
 }
 
 function addMoveToGameBoard(event) {
