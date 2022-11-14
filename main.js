@@ -22,8 +22,6 @@ gameBoard.addEventListener('click', function(event) {
     if (!event.target.classList.contains('button')) {
         return;
     }
-    addMoveToGameBoard(event);
-    addMoveToMoveArray(event);
     playerMove(event);
 })
 
@@ -51,27 +49,16 @@ function updatePlayerEmoji() {
     toggleGameBoardHeader();
 }
 
-function addMoveToGameBoard(event) {
-    event.target.innerHTML += `${currentPlayerEmoji}`
-}
-
-function addMoveToMoveArray(event) {
-    var boxId = event.target.id;
-    if (newGame.turn === playerOne.name) {
-        playerOne.moves.push(Number(boxId));
-    } else if (newGame.turn === playerTwo.name) {
-        playerTwo.moves.push(Number(boxId));
-    }
-}
-
 function playerMove(event) {
+    var boxId = (Number(event.target.id));
     if (newGame.turn === playerOne.name) {
-        playerOne.playerMove(event.target.id);
-        event.target.disabled = true;
+        playerOne.playerMove(boxId);
+        event.target.disabled = true; // prevents double clicking button
     } else if (newGame.turn === playerTwo.name) {
-        playerTwo.playerMove(event.target.id);
-        event.target.disabled = true;
+        playerTwo.playerMove(boxId);
+        event.target.disabled = true; // prevents double clicking button
     }
+    event.target.innerHTML += `${currentPlayerEmoji}`
     switchTurns();
     checkForWinner();
     updatePlayerEmoji();
@@ -85,18 +72,6 @@ function switchTurns() {
         newGame.turn = playerOne.name;
         newGame.moveCount ++
     }
-}
-
-function restartGame() {
-    newGame.resetGame();
-    playerOne.moves = [];
-    playerTwo.moves = [];
-    changeWhoGoesFirst();
-    newGame.turn = newGame.goesFirst;
-    updatePlayerEmoji();
-    clearBoard();
-    enableAllButtons();
-    toggleGameBoardHeader();
 }
 
 function checkForWinner() {
@@ -132,6 +107,18 @@ function checkForWinner() {
         disableAllButtons();
         setTimeout(restartGame, 3000);
     }
+}
+
+function restartGame() {
+    newGame.resetGame();
+    playerOne.moves = [];
+    playerTwo.moves = [];
+    changeWhoGoesFirst();
+    newGame.turn = newGame.goesFirst;
+    updatePlayerEmoji();
+    clearBoard();
+    enableAllButtons();
+    toggleGameBoardHeader();
 }
 
 function clearBoard() {
@@ -179,3 +166,36 @@ function toggleGameBoardHeader () {
         gameBoardHeader.innerHTML = `It's <span class="player-turn-emoji" id="player-turn-emoji">${currentPlayerEmoji}</span>'s turn`
     }
 }
+
+
+
+
+// function addMoveToGameBoard(event) {
+//     event.target.innerHTML += `${currentPlayerEmoji}`
+// }
+
+// function addMoveToMoveArray(event) {
+//     var boxId = (Number(event.target.id));
+//     if (newGame.turn === playerOne.name) {
+//         playerOne.moves.push(Number(boxId));
+//         console.log(playerOne.moves);
+//     } else if (newGame.turn === playerTwo.name) {
+//         playerTwo.moves.push(Number(boxId));
+//         console.log(playerTwo.moves);
+//     }
+//     event.target.innerHTML += `${currentPlayerEmoji}`
+// }
+
+
+// function playerMove(event) {
+//     if (newGame.turn === playerOne.name) {
+//         playerOne.playerMove(event.target.id);
+//         event.target.disabled = true;
+//     } else if (newGame.turn === playerTwo.name) {
+//         playerTwo.playerMove(event.target.id);
+//         event.target.disabled = true;
+//     }
+//     switchTurns();
+//     checkForWinner();
+//     updatePlayerEmoji();
+// }
