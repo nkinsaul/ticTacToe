@@ -13,7 +13,6 @@ var buttons = document.getElementsByClassName('button')
 var gameBoard = document.getElementById('game-board')
 var playersTurn = document.getElementById('player-turn-emoji')
 var gameBoardHeader = document.getElementById('game-board-header')
-// var winner = document.getElementById('game-board-header')
 
 // Event Listeners 👇🏻
 
@@ -88,7 +87,6 @@ function switchTurns() {
 }
 
 function restartGame() {
-    console.log('New Game')
     newGame.resetGame();
     playerOne.moves = [];
     playerTwo.moves = [];
@@ -109,7 +107,6 @@ function checkForWinner() {
         playerOne.moves.includes(3) && playerOne.moves.includes(6) && playerOne.moves.includes(9) ||
         playerOne.moves.includes(1) && playerOne.moves.includes(5) && playerOne.moves.includes(9) ||
         playerOne.moves.includes(3) && playerOne.moves.includes(5) && playerOne.moves.includes(7)) {
-        console.log(`${playerOne.name} wins!`)
         playerOne.playerWon();
         newGame.gameWin = playerOne.name;
         disableAllButtons();
@@ -123,14 +120,12 @@ function checkForWinner() {
                playerTwo.moves.includes(3) && playerTwo.moves.includes(6) && playerTwo.moves.includes(9) ||
                playerTwo.moves.includes(1) && playerTwo.moves.includes(5) && playerTwo.moves.includes(9) ||
                playerTwo.moves.includes(3) && playerTwo.moves.includes(5) && playerTwo.moves.includes(7)) {
-               console.log(`${playerTwo.name} wins!`)
                playerTwo.playerWon();
                newGame.gameWin = playerTwo.name;
                disableAllButtons();
                setTimeout(restartGame, 3000);
                toggleGameBoardHeader();
     } else if (newGame.moveCount === 9) {
-        console.log(`It's a draw!`)
         newGame.gameDraw = true;
         toggleGameBoardHeader();
         disableAllButtons();
