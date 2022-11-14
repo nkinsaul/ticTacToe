@@ -83,11 +83,7 @@ function checkForWinner() {
         playerOne.moves.includes(3) && playerOne.moves.includes(6) && playerOne.moves.includes(9) ||
         playerOne.moves.includes(1) && playerOne.moves.includes(5) && playerOne.moves.includes(9) ||
         playerOne.moves.includes(3) && playerOne.moves.includes(5) && playerOne.moves.includes(7)) {
-        playerOne.playerWon();
-        newGame.gameWin = playerOne.name;
-        disableAllButtons();
-        setTimeout(restartGame, 3000);
-        toggleGameBoardHeader();
+        declareWinner(playerOne);
     } else if (playerTwo.moves.includes(1) && playerTwo.moves.includes(2) && playerTwo.moves.includes(3) || 
                playerTwo.moves.includes(4) && playerTwo.moves.includes(5) && playerTwo.moves.includes(6) ||
                playerTwo.moves.includes(7) && playerTwo.moves.includes(8) && playerTwo.moves.includes(9) ||
@@ -96,16 +92,28 @@ function checkForWinner() {
                playerTwo.moves.includes(3) && playerTwo.moves.includes(6) && playerTwo.moves.includes(9) ||
                playerTwo.moves.includes(1) && playerTwo.moves.includes(5) && playerTwo.moves.includes(9) ||
                playerTwo.moves.includes(3) && playerTwo.moves.includes(5) && playerTwo.moves.includes(7)) {
-               playerTwo.playerWon();
-               newGame.gameWin = playerTwo.name;
-               disableAllButtons();
-               setTimeout(restartGame, 3000);
-               toggleGameBoardHeader();
+               declareWinner(playerTwo);
     } else if (newGame.moveCount === 9) {
         newGame.gameDraw = true;
         toggleGameBoardHeader();
         disableAllButtons();
         setTimeout(restartGame, 3000);
+    }
+}
+
+function declareWinner(winner) {
+    if (winner === playerOne) {
+        playerOne.playerWon();
+        newGame.gameWin = playerOne.name;
+        disableAllButtons();
+        setTimeout(restartGame, 3000);
+        toggleGameBoardHeader();
+    } else if (winner === playerTwo) {
+        playerTwo.playerWon();
+        newGame.gameWin = playerTwo.name;
+        disableAllButtons();
+        setTimeout(restartGame, 3000);
+        toggleGameBoardHeader();
     }
 }
 
