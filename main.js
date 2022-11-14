@@ -13,8 +13,7 @@ var buttons = document.getElementsByClassName('button')
 var gameBoard = document.getElementById('game-board')
 var playersTurn = document.getElementById('player-turn-emoji')
 var gameBoardHeader = document.getElementById('game-board-header')
-var playerOneWins = document.getElementById('player-one-wins')
-var playerTwoWins = document.getElementById('player-two-wins')
+var winner = document.getElementById('game-board-header')
 
 // Event Listeners 👇🏻
 
@@ -111,6 +110,7 @@ function checkForWinner() {
         playerOne.moves.includes(3) && playerOne.moves.includes(5) && playerOne.moves.includes(7)) {
         console.log(`${playerOne.name} wins!`)
         playerOne.playerWon();
+        newGame.gameWin = playerOne.name;
         disableAllButtons();
         setTimeout(restartGame, 3000);
         updatePlayerWins();
@@ -124,6 +124,7 @@ function checkForWinner() {
                playerTwo.moves.includes(3) && playerTwo.moves.includes(5) && playerTwo.moves.includes(7)) {
                console.log(`${playerTwo.name} wins!`)
                playerTwo.playerWon();
+               newGame.gameWin = playerTwo.name;
                disableAllButtons();
                setTimeout(restartGame, 3000);
                updatePlayerWins();
@@ -169,6 +170,9 @@ function changeWhoGoesFirst () {
 }
 
 function updatePlayerWins () {
-    playerOneWins.innerHTML = playerOne.wins;
-    playerTwoWins.innerHTML = playerTwo.wins;
+    if (newGame.gameWin === playerOne.name) {
+        winner.innerHTML = `🤖 Wins!`
+    } else if (newGame.gameWin === playerTwo.name) {
+        winner.innerHTML = `🎃 Wins!`
+    }
 }
