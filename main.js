@@ -13,6 +13,8 @@ var buttons = document.getElementsByClassName('button')
 var gameBoard = document.getElementById('game-board')
 var playersTurn = document.getElementById('player-turn-emoji')
 var gameBoardHeader = document.getElementById('game-board-header')
+var playerOneWins = document.getElementById('player-one-wins')
+var playerTwoWins = document.getElementById('player-two-wins')
 
 // Event Listeners 👇🏻
 
@@ -37,7 +39,6 @@ function loadPage() {
     newGame.turn = playerOne.name;
     newGame.goesFirst = playerOne.name;
     updatePlayerEmoji();
-    updatePlayerTurnEmoji();
 }
 
 function updatePlayerEmoji() {
@@ -73,8 +74,7 @@ function playerMove(event) {
         event.target.disabled = true;
     }
     switchTurns();
-    checkForWinner(playerOne);
-    checkForWinner(playerTwo);
+    checkForWinner();
     updatePlayerEmoji();
 }
 
@@ -95,23 +95,38 @@ function restartGame() {
     playerTwo.moves = [];
     changeWhoGoesFirst();
     newGame.turn = newGame.goesFirst;
+    updatePlayerEmoji();
     clearBoard();
     enableAllButtons();
 }
 
-function checkForWinner(player) {
-    if (player.moves.includes(1) && player.moves.includes(2) && player.moves.includes(3) || 
-        player.moves.includes(4) && player.moves.includes(5) && player.moves.includes(6) ||
-        player.moves.includes(7) && player.moves.includes(8) && player.moves.includes(9) ||
-        player.moves.includes(1) && player.moves.includes(4) && player.moves.includes(7) ||
-        player.moves.includes(2) && player.moves.includes(5) && player.moves.includes(8) ||
-        player.moves.includes(3) && player.moves.includes(6) && player.moves.includes(9) ||
-        player.moves.includes(1) && player.moves.includes(5) && player.moves.includes(9) ||
-        player.moves.includes(3) && player.moves.includes(5) && player.moves.includes(7)) {
-        console.log(`${player.name} wins!`)
-        player.playerWon();
+function checkForWinner() {
+    if (playerOne.moves.includes(1) && playerOne.moves.includes(2) && playerOne.moves.includes(3) || 
+        playerOne.moves.includes(4) && playerOne.moves.includes(5) && playerOne.moves.includes(6) ||
+        playerOne.moves.includes(7) && playerOne.moves.includes(8) && playerOne.moves.includes(9) ||
+        playerOne.moves.includes(1) && playerOne.moves.includes(4) && playerOne.moves.includes(7) ||
+        playerOne.moves.includes(2) && playerOne.moves.includes(5) && playerOne.moves.includes(8) ||
+        playerOne.moves.includes(3) && playerOne.moves.includes(6) && playerOne.moves.includes(9) ||
+        playerOne.moves.includes(1) && playerOne.moves.includes(5) && playerOne.moves.includes(9) ||
+        playerOne.moves.includes(3) && playerOne.moves.includes(5) && playerOne.moves.includes(7)) {
+        console.log(`${playerOne.name} wins!`)
+        playerOne.playerWon();
         disableAllButtons();
         setTimeout(restartGame, 3000);
+        updatePlayerWins();
+    } else if (playerTwo.moves.includes(1) && playerTwo.moves.includes(2) && playerTwo.moves.includes(3) || 
+               playerTwo.moves.includes(4) && playerTwo.moves.includes(5) && playerTwo.moves.includes(6) ||
+               playerTwo.moves.includes(7) && playerTwo.moves.includes(8) && playerTwo.moves.includes(9) ||
+               playerTwo.moves.includes(1) && playerTwo.moves.includes(4) && playerTwo.moves.includes(7) ||
+               playerTwo.moves.includes(2) && playerTwo.moves.includes(5) && playerTwo.moves.includes(8) ||
+               playerTwo.moves.includes(3) && playerTwo.moves.includes(6) && playerTwo.moves.includes(9) ||
+               playerTwo.moves.includes(1) && playerTwo.moves.includes(5) && playerTwo.moves.includes(9) ||
+               playerTwo.moves.includes(3) && playerTwo.moves.includes(5) && playerTwo.moves.includes(7)) {
+               console.log(`${playerTwo.name} wins!`)
+               playerTwo.playerWon();
+               disableAllButtons();
+               setTimeout(restartGame, 3000);
+               updatePlayerWins();
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
         disableAllButtons();
@@ -151,4 +166,9 @@ function changeWhoGoesFirst () {
         newGame.goesFirst = playerOne.name;
        return playerOne.name;
     }
+}
+
+function updatePlayerWins () {
+    playerOneWins.innerHTML = playerOne.wins;
+    playerTwoWins.innerHTML = playerTwo.wins;
 }
