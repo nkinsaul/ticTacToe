@@ -19,6 +19,9 @@ var gameBoardHeader = document.getElementById('game-board-header')
 window.addEventListener('load', loadPage);
 
 gameBoard.addEventListener('click', function(event) {
+    if (!event.target.classList.contains('button')) {
+        return;
+    }
     addMoveToGameBoard(event);
     addMoveToMoveArray(event);
     playerMove(event);
@@ -49,9 +52,7 @@ function updatePlayerEmoji() {
 }
 
 function addMoveToGameBoard(event) {
-    if (event.target.classList.contains('button')) {
     event.target.innerHTML += `${currentPlayerEmoji}`
-    }
 }
 
 function addMoveToMoveArray(event) {
