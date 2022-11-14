@@ -13,7 +13,7 @@ var buttons = document.getElementsByClassName('button')
 var gameBoard = document.getElementById('game-board')
 var playersTurn = document.getElementById('player-turn-emoji')
 var gameBoardHeader = document.getElementById('game-board-header')
-var winner = document.getElementById('game-board-header')
+// var winner = document.getElementById('game-board-header')
 
 // Event Listeners 👇🏻
 
@@ -46,7 +46,7 @@ function updatePlayerEmoji() {
     } else if (newGame.turn === playerTwo.name) {
         currentPlayerEmoji = '🎃'
     }
-    playersTurn.innerHTML = currentPlayerEmoji;
+    toggleGameBoardHeader();
 }
 
 function addMoveToGameBoard(event) {
@@ -97,6 +97,7 @@ function restartGame() {
     updatePlayerEmoji();
     clearBoard();
     enableAllButtons();
+    toggleGameBoardHeader();
 }
 
 function checkForWinner() {
@@ -113,7 +114,7 @@ function checkForWinner() {
         newGame.gameWin = playerOne.name;
         disableAllButtons();
         setTimeout(restartGame, 3000);
-        updatePlayerWins();
+        toggleGameBoardHeader();
     } else if (playerTwo.moves.includes(1) && playerTwo.moves.includes(2) && playerTwo.moves.includes(3) || 
                playerTwo.moves.includes(4) && playerTwo.moves.includes(5) && playerTwo.moves.includes(6) ||
                playerTwo.moves.includes(7) && playerTwo.moves.includes(8) && playerTwo.moves.includes(9) ||
@@ -127,9 +128,11 @@ function checkForWinner() {
                newGame.gameWin = playerTwo.name;
                disableAllButtons();
                setTimeout(restartGame, 3000);
-               updatePlayerWins();
+               toggleGameBoardHeader();
     } else if (newGame.moveCount === 9) {
         console.log(`It's a draw!`)
+        newGame.gameDraw = true;
+        toggleGameBoardHeader();
         disableAllButtons();
         setTimeout(restartGame, 3000);
     }
@@ -169,10 +172,14 @@ function changeWhoGoesFirst () {
     }
 }
 
-function updatePlayerWins () {
+function toggleGameBoardHeader () {
     if (newGame.gameWin === playerOne.name) {
-        winner.innerHTML = `🤖 Wins!`
+        gameBoardHeader.innerHTML = `🤖 Wins!`
     } else if (newGame.gameWin === playerTwo.name) {
-        winner.innerHTML = `🎃 Wins!`
+        gameBoardHeader.innerHTML = `🎃 Wins!`
+    } else if (newGame.gameDraw === true) {
+        gameBoardHeader.innerHTML = `It's a draw!`;
+    } else {
+        gameBoardHeader.innerHTML = `It's <span class="player-turn-emoji" id="player-turn-emoji">${currentPlayerEmoji}</span>'s turn`
     }
 }

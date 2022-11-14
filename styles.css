@@ -1,6 +1,6 @@
 body {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
@@ -9,7 +9,7 @@ body {
 
 aside {
     height: 79vh;
-    width: 25%;
+    width: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,8 +18,8 @@ aside {
 }
 
 main {
-    height: 100vh;
-    width: 75%;
+    height: 90vh;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,6 +41,7 @@ main {
 
 .game-board-header {
     height: 50px;
+    font-size: 50px;
 }
 
 .game-board {
@@ -49,6 +50,8 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 70px;
+    min-width: 0;
+    min-height: 0;
 }
 
 button {
