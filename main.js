@@ -39,8 +39,6 @@ var currentPlayerEmoji = ''
 // Functions 👇🏻
 
 function loadPage() {
-    playerOneToken.innerText = `${playerOne.token}`;
-    // playerTwoToken.innerText = `${playerTwo.token}`;
     newGame.turn = playerOne.name;
     newGame.goesFirst = playerOne.name;
     updatePlayerEmoji();
@@ -164,10 +162,8 @@ function resetButtons () {
     }
 }
 
-
 function disableAllButtons () {
     for (var i=0; i<buttons.length; i++) {
-        console.log(buttons[i].innerText);
         if (buttons[i].innerText === `0`) {
             buttons[i].innerText = ''
         }
