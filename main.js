@@ -13,6 +13,8 @@ var buttons = document.getElementsByClassName('button')
 var gameBoard = document.getElementById('game-board')
 var playersTurn = document.getElementById('player-turn-emoji')
 var gameBoardHeader = document.getElementById('game-board-header')
+var playerOneWins = document.getElementById('player-one-wins')
+var playerTwoWins = document.getElementById('player-two-wins')
 
 // Event Listeners 👇🏻
 
@@ -106,11 +108,13 @@ function declareWinner(winner) {
         playerOne.playerWon();
         newGame.gameWin = playerOne.name;
         disableAllButtons();
+        playerOneWins.innerHTML = playerOne.wins;
         setTimeout(restartGame, 3000);
         toggleGameBoardHeader();
     } else if (winner === playerTwo) {
         playerTwo.playerWon();
         newGame.gameWin = playerTwo.name;
+        playerTwoWins.innerHTML = playerTwo.wins;
         disableAllButtons();
         setTimeout(restartGame, 3000);
         toggleGameBoardHeader();
@@ -174,36 +178,3 @@ function toggleGameBoardHeader () {
         gameBoardHeader.innerHTML = `It's <span class="player-turn-emoji" id="player-turn-emoji">${currentPlayerEmoji}</span>'s turn`
     }
 }
-
-
-
-
-// function addMoveToGameBoard(event) {
-//     event.target.innerHTML += `${currentPlayerEmoji}`
-// }
-
-// function addMoveToMoveArray(event) {
-//     var boxId = (Number(event.target.id));
-//     if (newGame.turn === playerOne.name) {
-//         playerOne.moves.push(Number(boxId));
-//         console.log(playerOne.moves);
-//     } else if (newGame.turn === playerTwo.name) {
-//         playerTwo.moves.push(Number(boxId));
-//         console.log(playerTwo.moves);
-//     }
-//     event.target.innerHTML += `${currentPlayerEmoji}`
-// }
-
-
-// function playerMove(event) {
-//     if (newGame.turn === playerOne.name) {
-//         playerOne.playerMove(event.target.id);
-//         event.target.disabled = true;
-//     } else if (newGame.turn === playerTwo.name) {
-//         playerTwo.playerMove(event.target.id);
-//         event.target.disabled = true;
-//     }
-//     switchTurns();
-//     checkForWinner();
-//     updatePlayerEmoji();
-// }
