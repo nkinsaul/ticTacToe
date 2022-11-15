@@ -30,8 +30,8 @@ gameBoard.addEventListener('click', function(event) {
 // Global variables
 
 var newGame = new Game;
-var playerOne = newGame.createPlayers('playerOne');
-var playerTwo = newGame.createPlayers('playerTwo');
+var playerOne = newGame.createPlayers('playerOne', '🤖');
+var playerTwo = newGame.createPlayers('playerTwo', '🎃');
 var currentPlayerEmoji = ''
 
 // Functions 👇🏻
@@ -44,9 +44,9 @@ function loadPage() {
 
 function updatePlayerEmoji() {
     if (newGame.turn === playerOne.name) {
-        currentPlayerEmoji = '🤖'
+        currentPlayerEmoji = playerOne.token;
     } else if (newGame.turn === playerTwo.name) {
-        currentPlayerEmoji = '🎃'
+        currentPlayerEmoji = playerTwo.token;
     }
     toggleGameBoardHeader();
 }
@@ -169,9 +169,9 @@ function changeWhoGoesFirst () {
 
 function toggleGameBoardHeader () {
     if (newGame.gameWin === playerOne.name) {
-        gameBoardHeader.innerHTML = `🤖 Wins!`
+        gameBoardHeader.innerHTML = `${playerOne.token} Wins!`
     } else if (newGame.gameWin === playerTwo.name) {
-        gameBoardHeader.innerHTML = `🎃 Wins!`
+        gameBoardHeader.innerHTML = `${playerTwo.token} Wins!`
     } else if (newGame.gameDraw === true) {
         gameBoardHeader.innerHTML = `It's a draw!`;
     } else {

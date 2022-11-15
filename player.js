@@ -1,8 +1,9 @@
 class Player {
-    constructor(playerName) {
+    constructor(playerName, token) {
         this.name = playerName
         this.wins = 0;
         this.moves = [];
+        this.token = token;
     }
     playerWon() {
         this.wins ++;

@@ -8,8 +8,8 @@ class Game {
         this.playerTwoMoves = [];
         this.goesFirst = null;
     }
-    createPlayers(playerName) {
-        var newPlayer = new Player(playerName);
+    createPlayers(playerName, token) {
+        var newPlayer = new Player(playerName, token);
         return newPlayer;
     }
     playerMove(player, move) {
