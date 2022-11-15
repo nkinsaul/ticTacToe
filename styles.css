@@ -54,6 +54,12 @@ main {
     min-height: 0;
 }
 
+.new-game-button {
+    height: 30px;
+    width: 21%;
+    font-size: 12px;
+}
+
 button {
     display: flex;
     justify-content: center;
@@ -68,7 +74,11 @@ button:disabled {
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    font-size: 60px;
+}
+
+
+.hide {
+    color: transparent;
 }
 
 .box-1 {
@@ -132,4 +142,9 @@ button:disabled {
     border-right: none;
     border-left: black solid 1px;
     border-bottom: none;
+}
+
+div {
+    height: 100px;
+    width: 100px;
 }

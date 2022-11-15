@@ -15,6 +15,8 @@ var playersTurn = document.getElementById('player-turn-emoji')
 var gameBoardHeader = document.getElementById('game-board-header')
 var playerOneWins = document.getElementById('player-one-wins')
 var playerTwoWins = document.getElementById('player-two-wins')
+var playerOneToken = document.getElementById('player-one-emoji')
+var playerTwoToken = document.getElementById('player-two-emoji')
 
 // Event Listeners 👇🏻
 
@@ -37,9 +39,13 @@ var currentPlayerEmoji = ''
 // Functions 👇🏻
 
 function loadPage() {
+    playerOneToken.innerText = `${playerOne.token}`;
+    // playerTwoToken.innerText = `${playerTwo.token}`;
     newGame.turn = playerOne.name;
     newGame.goesFirst = playerOne.name;
     updatePlayerEmoji();
+    playerOneWins.innerHTML = playerOne.wins;
+    playerTwoWins.innerHTML = playerTwo.wins;
 }
 
 function updatePlayerEmoji() {
@@ -60,7 +66,7 @@ function playerMove(event) {
         playerTwo.playerMove(boxId);
         event.target.disabled = true; // prevents double clicking button
     }
-    event.target.innerHTML += `${currentPlayerEmoji}`
+    event.target.innerHTML = `${currentPlayerEmoji}`
     switchTurns();
     checkForWinner();
     updatePlayerEmoji();
@@ -131,6 +137,7 @@ function restartGame() {
     clearBoard();
     enableAllButtons();
     toggleGameBoardHeader();
+    resetButtons();
 }
 
 function clearBoard() {
@@ -151,8 +158,19 @@ function enableAllButtons () {
     }
 }
 
+function resetButtons () {
+    for (var i=0; i<buttons.length; i++) {
+        buttons[i].innerText = `0`
+    }
+}
+
+
 function disableAllButtons () {
     for (var i=0; i<buttons.length; i++) {
+        console.log(buttons[i].innerText);
+        if (buttons[i].innerText === `0`) {
+            buttons[i].innerText = ''
+        }
         buttons[i].disabled = true;
     }
 }
