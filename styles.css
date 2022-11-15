@@ -1,3 +1,4 @@
+
 body {
     display: flex;
     justify-content: center;
@@ -43,7 +44,7 @@ main {
 
 .game-board-header {
     height: 50px;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .win-header {
@@ -55,13 +56,15 @@ main {
 }
 
 .game-board {
-    height: 458px;
-    width: 58%;
+    height: 60%;
+    width: 60%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 70px;
     min-width: 0;
     min-height: 0;
+    align-content: center;
+    justify-content: center;
 }
 
 .new-game-button {
@@ -71,12 +74,15 @@ main {
 }
 
 button {
+    height: 180px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
     font-size: 60px;
-}
+    padding: 0;
+}    
 
 button:disabled {
     display: flex;
@@ -86,75 +92,65 @@ button:disabled {
     background-color: transparent;
 }
 
-
-.hide {
-    color: transparent;
-}
-
 .box-1 {
     border-top: none;
-    border-right: black solid 1px;
+    border-right: white solid 3px;
     border-left: none;
-    border-bottom: black solid 1px;
+    border-bottom: white solid 3px;
 }
 
 .box-2 {
     border-top: none;
-    border-right: black solid 1px;
-    border-left: black solid 1px;;
-    border-bottom: black solid 1px;
+    border-right: white solid 3px;
+    border-left: white solid 3px;;
+    border-bottom: white solid 3px;
 }
 
 .box-3 {
     border-top: none;
     border-right: none;
-    border-left: black solid 1px;;
-    border-bottom: black solid 1px;
+    border-left: white solid 3px;;
+    border-bottom: white solid 3px;
 }
 
 .box-4 {
-    border-top: black solid 1px;
-    border-right: black solid 1px;
+    border-top: white solid 3px;
+    border-right: white solid 3px;
     border-left: none;
-    border-bottom: black solid 1px;
+    border-bottom: white solid 3px;
 }
 
 .box-5 {
-    border-top: black solid 1px;
-    border-right: black solid 1px;
-    border-left: black solid 1px;
-    border-bottom: black solid 1px;
+    border-top: white solid 3px;
+    border-right: white solid 3px;
+    border-left: white solid 3px;
+    border-bottom: white solid 3px;
 }
 
 .box-6 {
-    border-top: black solid 1px;
+    border-top: white solid 3px;
     border-right: none;
-    border-left: black solid 1px;
-    border-bottom: black solid 1px;
+    border-left: white solid 3px;
+    border-bottom: white solid 3px;
 }
 
 .box-7 {
-    border-top: black solid 1px;
-    border-right: black solid 1px;
+    border-top: white solid 3px;
+    border-right: white solid 3px;
     border-left: none;
     border-bottom: none;
 }
 
 .box-8 {
-    border-top: black solid 1px;
-    border-right: black solid 1px;
-    border-left: black solid 1px;
+    border-top: white solid 3px;
+    border-right: white solid 3px;
+    border-left: white solid 3px;
     border-bottom: none;
 }
 
 .box-9 {
-    border-top: black solid 1px;
+    border-top: white solid 3px;
     border-right: none;
-    border-left: black solid 1px;
+    border-left: white solid 3px;
     border-bottom: none;
-}
-
-div {
-    height: 100px;
-    width: 100px;
 }

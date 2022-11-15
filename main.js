@@ -1,22 +1,22 @@
 // Query Selectors 👇🏻
 
-var box1 = document.getElementById('1')
-var box2 = document.getElementById('2')
-var box3 = document.getElementById('3')
-var box4 = document.getElementById('4')
-var box5 = document.getElementById('5')
-var box6 = document.getElementById('6')
-var box7 = document.getElementById('7')
-var box8 = document.getElementById('8')
-var box9 = document.getElementById('9')
-var buttons = document.getElementsByClassName('button')
-var gameBoard = document.getElementById('game-board')
-var playersTurn = document.getElementById('player-turn-emoji')
-var gameBoardHeader = document.getElementById('game-board-header')
-var playerOneWins = document.getElementById('player-one-wins')
-var playerTwoWins = document.getElementById('player-two-wins')
-var playerOneToken = document.getElementById('player-one-emoji')
-var playerTwoToken = document.getElementById('player-two-emoji')
+var box1 = document.getElementById('1');
+var box2 = document.getElementById('2');
+var box3 = document.getElementById('3');
+var box4 = document.getElementById('4');
+var box5 = document.getElementById('5');
+var box6 = document.getElementById('6');
+var box7 = document.getElementById('7');
+var box8 = document.getElementById('8');
+var box9 = document.getElementById('9');
+var buttons = document.getElementsByClassName('button');
+var gameBoard = document.getElementById('game-board');
+var playersTurn = document.getElementById('player-turn-emoji');
+var gameBoardHeader = document.getElementById('game-board-header');
+var playerOneWins = document.getElementById('player-one-wins');
+var playerTwoWins = document.getElementById('player-two-wins');
+var playerOneToken = document.getElementById('player-one-emoji');
+var playerTwoToken = document.getElementById('player-two-emoji');
 
 // Event Listeners 👇🏻
 
@@ -34,7 +34,7 @@ gameBoard.addEventListener('click', function(event) {
 var newGame = new Game;
 var playerOne = newGame.createPlayers('playerOne', '🤖');
 var playerTwo = newGame.createPlayers('playerTwo', '🎃');
-var currentPlayerEmoji = ''
+var currentPlayerEmoji = '';
 
 // Functions 👇🏻
 
@@ -135,30 +135,23 @@ function restartGame() {
     clearBoard();
     enableAllButtons();
     toggleGameBoardHeader();
-    resetButtons();
 }
 
 function clearBoard() {
-    box1.innerHTML = ''
-    box2.innerHTML = ''
-    box3.innerHTML = ''
-    box4.innerHTML = ''
-    box5.innerHTML = ''
-    box6.innerHTML = ''
-    box7.innerHTML = ''
-    box8.innerHTML = ''
-    box9.innerHTML = ''
+    box1.innerHTML = '';
+    box2.innerHTML = '';
+    box3.innerHTML = '';
+    box4.innerHTML = '';
+    box5.innerHTML = '';
+    box6.innerHTML = '';
+    box7.innerHTML = '';
+    box8.innerHTML = '';
+    box9.innerHTML = '';
 }
 
 function enableAllButtons () {
     for (var i=0; i<buttons.length; i++) {
         buttons[i].disabled = false;
-    }
-}
-
-function resetButtons () {
-    for (var i=0; i<buttons.length; i++) {
-        buttons[i].innerText = `0`
     }
 }
 
@@ -183,12 +176,12 @@ function changeWhoGoesFirst () {
 
 function toggleGameBoardHeader () {
     if (newGame.gameWin === playerOne.name) {
-        gameBoardHeader.innerHTML = `${playerOne.token} Wins!`
+        gameBoardHeader.innerHTML = `${playerOne.token} Wins!`;
     } else if (newGame.gameWin === playerTwo.name) {
-        gameBoardHeader.innerHTML = `${playerTwo.token} Wins!`
+        gameBoardHeader.innerHTML = `${playerTwo.token} Wins!`;
     } else if (newGame.gameDraw === true) {
         gameBoardHeader.innerHTML = `It's a draw!`;
     } else {
-        gameBoardHeader.innerHTML = `It's <span class="player-turn-emoji" id="player-turn-emoji">${currentPlayerEmoji}</span>'s turn`
+        gameBoardHeader.innerHTML = `Your <span class="player-turn-emoji" id="player-turn-emoji">${currentPlayerEmoji}</span> Turn`;
     }
 }
