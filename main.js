@@ -123,8 +123,8 @@ function declareWinner(winner) {
 
 function restartGame() {
     newGame.resetGame();
-    playerOne.moves = [];
-    playerTwo.moves = [];
+    playerOne.resetGame();
+    playerTwo.resetGame();
     changeWhoGoesFirst();
     newGame.turn = newGame.goesFirst;
     updatePlayerEmoji();

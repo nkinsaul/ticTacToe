@@ -10,4 +10,7 @@ class Player {
     playerMove(move) {
         this.moves.push(move);
     }
+    resetGame(player) {
+        this.moves = [];
+    }
 }
