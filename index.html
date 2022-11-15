@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="styleSheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sono">
+    <title>TicTacToe</title>
+</head>
+<body>
+    <aside>
+        <h1 class="player-emoji" id="player-one-emoji">🤖</h1>
+        <h1 class="win-header">Wins</h1>
+        <h1 class="player-one-wins win-count" id="player-one-wins"></h1>
+    </aside>
+    <main>
+        <h1 class="game-board-header" id="game-board-header">It's <span class="player-turn-emoji" id="player-turn-emoji"></span>'s turn</h1>
+        <section class="game-board" id="game-board">
+            <button class="box-1 button" id="1"></button>   
+            <button class="box-2 button" id="2"></button>
+            <button class="box-3 button" id="3"></button>
+            <button class="box-4 button" id="4"></button> 
+            <button class="box-5 button" id="5"></button>   
+            <button class="box-6 button" id="6"></button>      
+            <button class="box-7 button" id="7"></button>     
+            <button class="box-8 button" id="8"></button>   
+            <button class="box-9 button" id="9"></button>
+        </section>
+    </main>
+    <aside>
+        <h1 class="player-emoji" id="player-two-emoji">🎃</h1>
+        <h1 class="win-header">Wins</h1>
+        <h1 class="player-two-wins win-count" id="player-two-wins"></h1>
+    </aside>
+    <script type="text/javascript" src="player.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
