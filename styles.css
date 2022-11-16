@@ -28,7 +28,6 @@ main {
     align-items: center;
     background-color: #75dcf0;
     justify-content: center;
-    flex-wrap: wrap;
     border-radius: 70px;
     margin: 3%;
 }
@@ -36,11 +35,6 @@ main {
 .player-emoji {
     font-size: 70px;
 }
-
-.player-turn-emoji {
-    font-size: 60px;
-}
-
 
 .game-board-header {
     height: 50px;
@@ -61,8 +55,6 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 70px;
-    min-width: 0;
-    min-height: 0;
     align-content: center;
     justify-content: center;
 }

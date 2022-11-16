@@ -157,9 +157,6 @@ function enableAllButtons () {
 
 function disableAllButtons () {
     for (var i=0; i<buttons.length; i++) {
-        if (buttons[i].innerText === `0`) {
-            buttons[i].innerText = ''
-        }
         buttons[i].disabled = true;
     }
 }
